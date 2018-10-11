@@ -11,12 +11,12 @@ using namespace std;
 class sensores{
 public:
 	sensores();
-	void setVector(int number, vector<int> data);
-	void setClase(string cla);
-	string getClase();
-	void append(int sensor, int dato);
+	sensores(int);
+	void setVector(int, vector<int>);
+	void append(int, int);
 	void clearVector();
-	void printVector(int sensor);
+	void printVector(int);
+	int getTiempo();
 private:
 	vector<int> sensor1;
 	vector<int> sensor2;

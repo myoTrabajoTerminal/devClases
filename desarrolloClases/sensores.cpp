@@ -1,7 +1,7 @@
 #include "sensores.h"
 
-sensores::sensores() {
-	clase = "init";
+sensores::sensores(int time) {
+	tiempo = time;
 }
 
 void sensores::setVector(int number, vector<int> data){
@@ -35,14 +35,6 @@ void sensores::setVector(int number, vector<int> data){
 		cout << "El valor introducido es incorrecto" << endl;
 		break;
 	}
-}
-
-void sensores::setClase(string cla){
-	clase = cla;
-}
-
-string sensores::getClase() {
-	return clase;
 }
 
 void sensores::append(int sensor, int dato) {
@@ -91,43 +83,48 @@ void sensores::printVector(int sensor) {
 	{
 	case 1:
 		for (int val = 0; val < sensor1.size(); val++) {
-			cout << sensor1[val] << endl;
+			cout << sensor1[val] << ',';
 		}
 		break;
 	case 2:
 		for (int val = 0; val < sensor2.size(); val++) {
-			cout << sensor2[val] << endl;
+			cout << sensor2[val] << ',';
 		}
 		break;
 	case 3:
 		for (int val = 0; val < sensor3.size(); val++) {
-			cout << sensor3[val] << endl;
+			cout << sensor3[val] << ',';
 		}
 		break;
 	case 4:
 		for (int val = 0; val < sensor4.size(); val++) {
-			cout << sensor4[val] << endl;
+			cout << sensor4[val] << ',';
 		}
 		break;
 	case 5:
 		for (int val = 0; val < sensor5.size(); val++) {
-			cout << sensor5[val] << endl;
+			cout << sensor5[val] << ',';
 		}
 		break;
 	case 6:
 		for (int val = 0; val < sensor6.size(); val++) {
-			cout << sensor6[val] << endl;
+			cout << sensor6[val] << ',';
 		}
 		break;
 	case 7:
 		for (int val = 0; val < sensor7.size(); val++) {
-			cout << sensor7[val] << endl;
+			cout << sensor7[val] << ',';
 		}
 		break;
 	case 8:
 		for (int val = 0; val < sensor8.size(); val++) {
-			cout << sensor8[val] << endl;
+			cout << sensor8[val] << ',';
 		}
 		break;
 	}
+	
+}
+
+int sensores::getTiempo() {
+	return tiempo;
 }

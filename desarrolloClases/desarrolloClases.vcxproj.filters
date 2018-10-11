@@ -21,9 +21,15 @@
     <ClCompile Include="sensores.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="muestra.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sensores.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="muestra.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

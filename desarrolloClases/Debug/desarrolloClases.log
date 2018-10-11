@@ -1,16 +1,2 @@
-﻿  sensores.cpp
-c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\sensores.cpp(93): warning C4018: '<': signed/unsigned mismatch
-c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\sensores.cpp(98): warning C4018: '<': signed/unsigned mismatch
-c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\sensores.cpp(103): warning C4018: '<': signed/unsigned mismatch
-c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\sensores.cpp(108): warning C4018: '<': signed/unsigned mismatch
-c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\sensores.cpp(113): warning C4018: '<': signed/unsigned mismatch
-c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\sensores.cpp(118): warning C4018: '<': signed/unsigned mismatch
-c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\sensores.cpp(123): warning C4018: '<': signed/unsigned mismatch
-c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\sensores.cpp(128): warning C4018: '<': signed/unsigned mismatch
-  main.cpp
-c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\main.cpp(54): warning C4018: '<': signed/unsigned mismatch
-c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\main.cpp(59): warning C4018: '<': signed/unsigned mismatch
-c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\main.cpp(77): warning C4018: '<': signed/unsigned mismatch
-c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\main.cpp(86): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
+﻿  muestra.cpp
   desarrolloClases.vcxproj -> C:\Users\libra\Documents\IPN\TT\desarrollo\desarrolloClases\Debug\desarrolloClases.exe

@@ -3,22 +3,22 @@
 #include <fstream>
 
 #include "sensores.h"
+#include "muestra.h"
 
 using namespace std;
 
 vector<vector<string>> readCSV(string ruta);
-vector<sensores> fillSensores(vector<vector<string>> raws);
-void printVal(vector<vector<string>> raws);
-void printSensores(vector<sensores> data);
+vector<sensores> fillSensores(vector<vector<string>> raws, int tiempo);
+void printSensores(vector<sensores> raws);
 
 int main(int argc, char* argv[]) {
-	int periodo = 20;
+	int tiempo = 20;
 	vector<vector<string>> res;
 	vector<sensores> conjuntos;
 
 	res = readCSV("excel/valores-final.csv");
-	conjuntos = fillSensores(res);
-
+	conjuntos = fillSensores(res, tiempo);
+	
 	printSensores(conjuntos);
 
 	return 0;
@@ -46,16 +46,21 @@ vector<vector<string>> readCSV(string ruta) {
 	return raws;
 }
 
-vector<sensores> fillSensores(vector<vector<string>> raws) {
+vector<sensores> fillSensores(vector<vector<string>> raws, int tiempo) {
 	vector<sensores> out;
-	sensores aux;
+	sensores aux(tiempo);
 	int fin, content;
-	string id;
-	for (int row = 0; row < raws.size(); row++) {
+	string clase;
+	fin = raws[1].size() - 1;
+	clase = raws[1][fin];
+	for (int sensor = 0; sensor < raws[1].size() - 1; sensor++) {
+		stringstream stream(raws[1][sensor]);
+		stream >> content;
+		aux.append(sensor + 1, content);
+	}
+	for (int row = 1; row < raws.size() - 1; row++) {
 		fin = raws[row].size() - 1;
-		id = raws[row][fin];
-		//cout << id << '\t' << aux.getClase() << endl;
-		if (aux.getClase() == id){
+		if (clase == raws[row][fin]) {
 			for (int sensor = 0; sensor < raws[row].size() - 1; sensor++) {
 				stringstream stream(raws[row][sensor]);
 				stream >> content;
@@ -64,30 +69,21 @@ vector<sensores> fillSensores(vector<vector<string>> raws) {
 		}
 		else {
 			out.push_back(aux);
-			aux.setClase(id);
+			clase = raws[row][fin];
 			aux.clearVector();
 		}
 	}
+	out.push_back(aux);
 	return out;
 }
 
-void printVal(vector<vector<string>> raws) {
-	int index = 1;
-	while (raws[index] == raws[index + 1] || index + 1 != raws.size() - 1) {
-		for (int col = 0; col < raws[index].size(); col++) {
-			cout << raws[index][col] << '\t';
+void printSensores(vector<sensores> raws) {
+	for (int row = 0; row < raws.size(); row++) {
+		for (int sensor = 1; sensor <= 8; sensor++) {
+			cout << '[';
+			raws[row].printVector(sensor);
+			cout << ']' << endl;
 		}
 		cout << endl;
-		index++;
-	}
-}
-
-void printSensores(vector<sensores> data) {
-	for (int conj = 0; conj < data.size(); conj++) {
-		cout << endl << endl << "********" << data[conj].getClase() << "********" << endl << endl;
-		for (int sensor = 0; sensor < 8; sensor++) {
-			data[conj].printVector(sensor + 1);
-			cout << endl << endl;
-		}
 	}
 }
