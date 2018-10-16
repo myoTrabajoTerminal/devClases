@@ -48,7 +48,7 @@ vector<vector<string>> readCSV(string ruta) {
 
 vector<sensores> fillSensores(vector<vector<string>> raws, int tiempo) {
 	vector<sensores> out;
-	sensores aux(tiempo);
+	sensores aux;
 	int fin, content;
 	string clase;
 	fin = raws[1].size() - 1;

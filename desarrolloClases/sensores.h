@@ -10,8 +10,6 @@ using namespace std;
 
 class sensores{
 public:
-	sensores();
-	sensores(int);
 	void setVector(int, vector<int>);
 	void append(int, int);
 	void clearVector();

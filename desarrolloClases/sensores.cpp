@@ -1,9 +1,5 @@
 #include "sensores.h"
 
-sensores::sensores(int time) {
-	tiempo = time;
-}
-
 void sensores::setVector(int number, vector<int> data){
 	switch (number)
 	{
