@@ -121,6 +121,24 @@ void sensores::printVector(int sensor) {
 	
 }
 
-int sensores::getTiempo() {
-	return tiempo;
+vector<int> sensores::getVector(int sensor) {
+	switch (sensor)
+	{
+	case 1:
+		return sensor1;
+	case 2:
+		return sensor2;
+	case 3:
+		return sensor3;
+	case 4:
+		return sensor4;
+	case 5:
+		return sensor5;
+	case 6:
+		return sensor6;
+	case 7:
+		return sensor7;
+	case 8:
+		return sensor8;
+	}
 }

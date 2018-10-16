@@ -14,7 +14,7 @@ public:
 	void append(int, int);
 	void clearVector();
 	void printVector(int);
-	int getTiempo();
+	vector<int> getVector(int);
 private:
 	vector<int> sensor1;
 	vector<int> sensor2;

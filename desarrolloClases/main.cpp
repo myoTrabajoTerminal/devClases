@@ -5,6 +5,8 @@
 #include "sensores.h"
 #include "muestra.h"
 
+#define nSENSORES 8
+
 using namespace std;
 
 vector<vector<string>> readCSV(string ruta);
@@ -15,12 +17,22 @@ int main(int argc, char* argv[]) {
 	int tiempo = 20;
 	vector<vector<string>> res;
 	vector<sensores> conjuntos;
+	vector<muestra> muestras;
+	muestra aux;
 
 	res = readCSV("excel/valores-final.csv");
 	conjuntos = fillSensores(res, tiempo);
 	
-	printSensores(conjuntos);
-
+	//printSensores(conjuntos);
+	for (int periodo = 0; periodo < conjuntos[0].getVector(1).size() / tiempo; periodo++) {
+		for (int conjunto = 0; conjunto < conjuntos.size(); conjunto++) {
+			for (int sensor = 1; sensor <= nSENSORES; sensor++) {
+				cout << "" << conjunto << ' ' << sensor << ' ' << tiempo * periodo << ' ' << tiempo*(periodo + 1) - 1 << endl;
+				aux.setStandardDeviation(conjuntos[conjunto], tiempo*periodo, tiempo*(periodo + 1) - 1);
+			}
+			muestras.push_back(aux);
+		}
+	}
 	return 0;
 }
 
@@ -53,15 +65,15 @@ vector<sensores> fillSensores(vector<vector<string>> raws, int tiempo) {
 	string clase;
 	fin = raws[1].size() - 1;
 	clase = raws[1][fin];
-	for (int sensor = 0; sensor < raws[1].size() - 1; sensor++) {
+	for (int sensor = 0; sensor < fin; sensor++) {
 		stringstream stream(raws[1][sensor]);
 		stream >> content;
 		aux.append(sensor + 1, content);
 	}
-	for (int row = 1; row < raws.size() - 1; row++) {
+	for (int row = 1; row < raws.size(); row++) {
 		fin = raws[row].size() - 1;
 		if (clase == raws[row][fin]) {
-			for (int sensor = 0; sensor < raws[row].size() - 1; sensor++) {
+			for (int sensor = 0; sensor < fin; sensor++) {
 				stringstream stream(raws[row][sensor]);
 				stream >> content;
 				aux.append(sensor + 1, content);
