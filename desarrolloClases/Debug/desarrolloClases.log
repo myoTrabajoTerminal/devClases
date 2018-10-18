@@ -1,2 +1,6 @@
-﻿  muestra.cpp
-  desarrolloClases.vcxproj -> C:\Users\PC-1\Documents\ersajo\devClases\Debug\desarrolloClases.exe
+﻿  main.cpp
+c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\main.cpp(27): warning C4018: '<': signed/unsigned mismatch
+c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\main.cpp(28): warning C4018: '<': signed/unsigned mismatch
+c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\main.cpp(71): warning C4018: '<': signed/unsigned mismatch
+c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\main.cpp(92): warning C4018: '<': signed/unsigned mismatch
+  desarrolloClases.vcxproj -> C:\Users\libra\Documents\IPN\TT\desarrollo\desarrolloClases\Debug\desarrolloClases.exe

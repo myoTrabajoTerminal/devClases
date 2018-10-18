@@ -1,9 +1,11 @@
 #include "muestra.h"
 
+#define nSENSORES 8
+
 void muestra::setStandardDeviation(sensores data, int inicio, int fin) {
-	for (int sensor = 1; sensor <= 8; sensor++) {
+	for (int sensor = 1; sensor <= nSENSORES; sensor++) {
 		cout << "sensor " << sensor << endl;
-		for (int iterator = inicio; iterator <= fin; iterator++) {
+		for (int iterator = inicio; iterator < fin; iterator++) {
 			cout << "I: " << inicio << "\tF: " << fin << '\t';
 			cout << data.getVector(sensor)[iterator] << ' ';
 			cout << endl;
