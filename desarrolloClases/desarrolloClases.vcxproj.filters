@@ -18,18 +18,18 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sensores.cpp">
+    <ClCompile Include="muestra.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="muestra.cpp">
+    <ClCompile Include="sensors.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="sensores.h">
+    <ClInclude Include="muestra.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="muestra.h">
+    <ClInclude Include="sensors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

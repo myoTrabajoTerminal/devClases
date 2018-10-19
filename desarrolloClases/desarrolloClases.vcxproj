@@ -116,12 +116,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="muestra.cpp" />
-    <ClCompile Include="sensores.cpp" />
+    <ClCompile Include="sensors.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="muestra.h" />
-    <ClInclude Include="sensores.h" />
+    <ClInclude Include="sensors.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

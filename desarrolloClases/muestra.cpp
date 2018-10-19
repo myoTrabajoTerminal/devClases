@@ -1,30 +1,45 @@
 #include "muestra.h"
 
-#define nSENSORES 8
+#define nSENSORS 8
 
-void muestra::setStandardDeviation(sensores data, int inicio, int fin) {
-	for (int sensor = 1; sensor <= nSENSORES; sensor++) {
-		cout << "sensor " << sensor << endl;
+void muestra::setStandardDeviation(sensors data, int inicio, int fin) {
+	vector<int> aux;
+	for (int sensor = 1; sensor <= nSENSORS; sensor++) {
+		//cout << "sensor " << sensor << endl;
 		for (int iterator = inicio; iterator < fin; iterator++) {
-			cout << "I: " << inicio << "\tF: " << fin << '\t';
-			cout << data.getVector(sensor)[iterator] << ' ';
-			cout << endl;
+			aux.push_back(data.getVector(sensor)[iterator]);
+			//cout << data.getVector(sensor)[iterator] << ',';
 		}
-		cout << endl;
+		standardDev.push_back(doMath(aux));
+		aux.clear();
+		//cout << endl;
 	}
 }
 
 float muestra::doMath(vector<int> vals) {
-	float val = 3.5;
-	return val;
+	return standardDeviation(vals, arithmeticMean(vals));
 }
 
-vector<float> muestra::arithmeticMean(vector<int> vals) {
-	vector<float> val;
-	return val;
+float muestra::arithmeticMean(vector<int> vals) {
+	float val = 0;
+	for (int i = 0; i < vals.size(); i++) {
+		val = val + vals[i];
+	}
+	return val/vals.size();
 }
 
-vector<float> muestra::standardDeviation(vector<int> vals) {
-	vector<float> val;
-	return val;
+float muestra::standardDeviation(vector<int> vals, float mean) {
+	float val = 0;
+	for (int i = 0; i < vals.size(); i++) {
+		val = val + pow(abs(vals[i] - mean), 2);
+	}
+	return sqrt(val / vals.size());
+}
+
+vector<float> muestra::getStandarDev() {
+	return standardDev;
+}
+
+void muestra::clear() {
+	standardDev.clear();
 }

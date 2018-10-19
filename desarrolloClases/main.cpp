@@ -1,36 +1,42 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <math.h>
 
-#include "sensores.h"
+#include "sensors.h"
 #include "muestra.h"
 
-#define nSENSORES 8
+#define nSENSORS 8
 
 using namespace std;
 
-vector<vector<string>> readCSV(string ruta);
-vector<sensores> fillSensores(vector<vector<string>> raws, int tiempo);
-void printSensores(vector<sensores> raws);
+vector<vector<string>> readCSV(string);
+vector<sensors> fillSensors(vector<vector<string>>);
+void printSensors(vector<sensors>);
+void printMuestras(vector<muestra>);
 
 int main(int argc, char* argv[]) {
-	int tiempo = 21;
+	int time = 20;
 	vector<vector<string>> res;
-	vector<sensores> conjuntos;
+	vector<sensors> sets;
 	vector<muestra> muestras;
 	muestra aux;
 
 	res = readCSV("excel/valores-final.csv");
-	conjuntos = fillSensores(res, tiempo);
+	sets = fillSensors(res);
 	
-	//printSensores(conjuntos);
-	for (int periodo = 0; periodo < conjuntos[0].getVector(1).size() / tiempo; periodo++) {
-		for (int conjunto = 0; conjunto < conjuntos.size(); conjunto++) {
-			cout << conjunto << ' ' << tiempo * periodo << ' ' << tiempo*(periodo + 1) << endl;
-			aux.setStandardDeviation(conjuntos[conjunto], tiempo*periodo, tiempo*(periodo + 1));
+	//printSensors(sets);
+	for (int periodo = 0; periodo < sets[0].getVector(1).size() / time; periodo++) {
+		for (int set = 0; set < sets.size(); set++) {
+			//cout << set << ' ' << time * periodo << ' ' << time*(periodo + 1) << endl;
+			//cout << endl << sets[set].getClass() << endl;
+			aux.setStandardDeviation(sets[set], time*periodo, time*(periodo + 1));
 			muestras.push_back(aux);
+			aux.clear();
 		}
 	}
+	printMuestras(muestras);
+	cout << endl << endl << muestras.size() << '\t' << sets.size();
 	return 0;
 }
 
@@ -56,18 +62,13 @@ vector<vector<string>> readCSV(string ruta) {
 	return raws;
 }
 
-vector<sensores> fillSensores(vector<vector<string>> raws, int tiempo) {
-	vector<sensores> out;
-	sensores aux;
+vector<sensors> fillSensors(vector<vector<string>> raws) {
+	vector<sensors> out;
+	sensors aux;
 	int fin, content;
 	string clase;
 	fin = raws[1].size() - 1;
 	clase = raws[1][fin];
-	/*for (int sensor = 0; sensor < fin; sensor++) {
-		stringstream stream(raws[1][sensor]);
-		stream >> content;
-		aux.append(sensor + 1, content);
-	}*/
 	for (int row = 1; row < raws.size(); row++) {
 		fin = raws[row].size() - 1;
 		if (clase != raws[row][fin]) {
@@ -81,6 +82,7 @@ vector<sensores> fillSensores(vector<vector<string>> raws, int tiempo) {
 			stringstream stream(raws[row][sensor]);
 			stream >> content;
 			aux.append(sensor + 1, content);
+			aux.setClass(clase);
 		}
 		
 	}
@@ -88,13 +90,23 @@ vector<sensores> fillSensores(vector<vector<string>> raws, int tiempo) {
 	return out;
 }
 
-void printSensores(vector<sensores> raws) {
+void printSensors(vector<sensors> raws) {
 	for (int row = 0; row < raws.size(); row++) {
-		for (int sensor = 1; sensor <= 8; sensor++) {
+		for (int sensor = 1; sensor <= nSENSORS; sensor++) {
 			cout << '[';
 			raws[row].printVector(sensor);
 			cout << ']' << endl;
 		}
 		cout << endl;
+	}
+}
+
+void printMuestras(vector<muestra> raws) {
+	for (int row = 0; row < raws.size(); row++) {
+		cout << '[';
+		for (int pos = 0; pos < raws[row].getStandarDev().size(); pos++) {
+			cout << raws[row].getStandarDev()[pos] << '\t';
+		}
+		cout << ']' << endl;
 	}
 }

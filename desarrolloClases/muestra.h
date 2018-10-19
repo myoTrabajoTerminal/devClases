@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <vector>
-#include "sensores.h"
+#include "sensors.h"
 
 using namespace std;
 
@@ -11,10 +11,12 @@ using namespace std;
 
 class muestra{
 public:
-	void setStandardDeviation(sensores, int, int);
+	void setStandardDeviation(sensors, int, int);
 	float doMath(vector<int>);
-	vector<float> arithmeticMean(vector<int>);
-	vector<float> standardDeviation(vector<int>);
+	float arithmeticMean(vector<int>);
+	float standardDeviation(vector<int>, float);
+	vector<float> getStandarDev();
+	void clear();
 private:
 	vector<float> standardDev;
 	string clase;
