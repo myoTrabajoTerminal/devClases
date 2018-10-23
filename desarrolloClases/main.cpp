@@ -5,6 +5,7 @@
 
 #include "sensors.h"
 #include "muestra.h"
+#include "LearningSet.h"
 
 #define nSENSORS 8
 
@@ -21,6 +22,7 @@ int main(int argc, char* argv[]) {
 	vector<sensors> sets;
 	vector<muestra> muestras;
 	muestra aux;
+	LearningSet out;
 
 	res = readCSV("excel/valores-final.csv");
 	sets = fillSensors(res);
@@ -31,12 +33,16 @@ int main(int argc, char* argv[]) {
 			//cout << set << ' ' << time * periodo << ' ' << time*(periodo + 1) << endl;
 			//cout << endl << sets[set].getClass() << endl;
 			aux.setStandardDeviation(sets[set], time*periodo, time*(periodo + 1));
+			aux.setClase(sets[set].getClass());
 			muestras.push_back(aux);
 			aux.clear();
 		}
 	}
-	printMuestras(muestras);
-	cout << endl << endl << muestras.size() << '\t' << sets.size();
+	//printMuestras(muestras);
+	//out << endl << endl << muestras.size() << '\t' << sets.size();
+
+	out.setValues(muestras);
+
 	return 0;
 }
 
@@ -103,7 +109,7 @@ void printSensors(vector<sensors> raws) {
 
 void printMuestras(vector<muestra> raws) {
 	for (int row = 0; row < raws.size(); row++) {
-		cout << '[';
+		cout << raws[row].getClase() << '[';
 		for (int pos = 0; pos < raws[row].getStandarDev().size(); pos++) {
 			cout << raws[row].getStandarDev()[pos] << '\t';
 		}

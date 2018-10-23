@@ -17,6 +17,8 @@ public:
 	float standardDeviation(vector<int>, float);
 	vector<float> getStandarDev();
 	void clear();
+	void setClase(string);
+	string getClase();
 private:
 	vector<float> standardDev;
 	string clase;

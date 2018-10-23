@@ -43,3 +43,11 @@ vector<float> muestra::getStandarDev() {
 void muestra::clear() {
 	standardDev.clear();
 }
+
+void muestra::setClase(string cad) {
+	clase = cad;
+}
+
+string muestra::getClase() {
+	return clase;
+}

@@ -115,11 +115,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="LearningSet.cpp" />
     <ClCompile Include="muestra.cpp" />
     <ClCompile Include="sensors.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LearningSet.h" />
     <ClInclude Include="muestra.h" />
     <ClInclude Include="sensors.h" />
   </ItemGroup>

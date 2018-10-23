@@ -24,12 +24,18 @@
     <ClCompile Include="sensors.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LearningSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="muestra.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sensors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LearningSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
