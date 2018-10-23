@@ -5,3 +5,11 @@ void LearningSet::setValues(vector<muestra> raws) {
 		standardDeviations.push_back(raws[row]);
 	}
 }
+
+void LearningSet::append(muestra val) {
+	standardDeviations.push_back(val);
+}
+
+vector<muestra> LearningSet::getStandarDeviations() {
+	return standardDeviations;
+}

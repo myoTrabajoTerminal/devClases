@@ -12,6 +12,8 @@ using namespace std;
 class LearningSet {
 public:
 	void setValues(vector<muestra>);
+	void append(muestra);
+	vector<muestra> getStandarDeviations();
 private:
 	vector<muestra> standardDeviations;
 };

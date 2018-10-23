@@ -6,6 +6,7 @@
 #include "sensors.h"
 #include "muestra.h"
 #include "LearningSet.h"
+#include "KNN.h"
 
 #define nSENSORS 8
 
@@ -23,10 +24,15 @@ int main(int argc, char* argv[]) {
 	vector<muestra> muestras;
 	muestra aux;
 	LearningSet out;
+	float operationRes;
+	KNN clasificador;
 
+	//Leer los datos de la pulsera almacenados para pruebas
 	res = readCSV("excel/valores-final.csv");
+	//Llenado de la clase sensores para dividir por clases
 	sets = fillSensors(res);
 	
+	//Ciclo para generar las muestras totales para el clasificador
 	//printSensors(sets);
 	for (int periodo = 0; periodo < sets[0].getVector(1).size() / time; periodo++) {
 		for (int set = 0; set < sets.size(); set++) {
@@ -39,13 +45,20 @@ int main(int argc, char* argv[]) {
 		}
 	}
 	//printMuestras(muestras);
-	//out << endl << endl << muestras.size() << '\t' << sets.size();
 
-	out.setValues(muestras);
+	//Ciclo para tomar unicamente el 80% de las muestras para la fase de aprendizaje
+	operationRes = (muestras.size() *8)/ 10;
+	for (int row = 0; row < operationRes; row++) {
+		out.append(muestras[row]);
+	}
+	//printMuestras(out.getStandarDeviations());
+
+	clasificador.learning(out);
 
 	return 0;
 }
 
+//Metodo de lectura de un archivo CSV
 vector<vector<string>> readCSV(string ruta) {
 	ifstream  data(ruta);
 	vector<string> raw;
@@ -68,6 +81,7 @@ vector<vector<string>> readCSV(string ruta) {
 	return raws;
 }
 
+//Metodo que realiza el procesamiento necesario para llenar cada uno de los sensores con su clase correspondiente
 vector<sensors> fillSensors(vector<vector<string>> raws) {
 	vector<sensors> out;
 	sensors aux;
@@ -96,6 +110,7 @@ vector<sensors> fillSensors(vector<vector<string>> raws) {
 	return out;
 }
 
+//DEBUG
 void printSensors(vector<sensors> raws) {
 	for (int row = 0; row < raws.size(); row++) {
 		for (int sensor = 1; sensor <= nSENSORS; sensor++) {
@@ -107,6 +122,7 @@ void printSensors(vector<sensors> raws) {
 	}
 }
 
+//DEBUG
 void printMuestras(vector<muestra> raws) {
 	for (int row = 0; row < raws.size(); row++) {
 		cout << raws[row].getClase() << '[';

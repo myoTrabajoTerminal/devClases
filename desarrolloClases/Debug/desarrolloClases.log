@@ -1,11 +1,5 @@
-﻿  LearningSet.cpp
-c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\learningset.cpp(4): warning C4018: '<': signed/unsigned mismatch
-  main.cpp
-c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\main.cpp(31): warning C4018: '<': signed/unsigned mismatch
-c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\main.cpp(32): warning C4018: '<': signed/unsigned mismatch
-c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\main.cpp(78): warning C4018: '<': signed/unsigned mismatch
-c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\main.cpp(100): warning C4018: '<': signed/unsigned mismatch
-c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\main.cpp(111): warning C4018: '<': signed/unsigned mismatch
-c:\users\libra\documents\ipn\tt\desarrollo\desarrolloclases\desarrolloclases\main.cpp(113): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-  desarrolloClases.vcxproj -> C:\Users\libra\Documents\IPN\TT\desarrollo\desarrolloClases\Debug\desarrolloClases.exe
+﻿  KNN.cpp
+c:\users\pc-1\documents\ersajo\devclases\desarrolloclases\knn.cpp(8): warning C4018: '<': no coinciden signed/unsigned
+c:\users\pc-1\documents\ersajo\devclases\desarrolloclases\knn.cpp(25): warning C4018: '<': no coinciden signed/unsigned
+c:\users\pc-1\documents\ersajo\devclases\desarrolloclases\knn.cpp(27): warning C4018: '<': no coinciden signed/unsigned
+  desarrolloClases.vcxproj -> C:\Users\PC-1\Documents\ersajo\devClases\Debug\desarrolloClases.exe
