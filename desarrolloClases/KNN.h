@@ -2,9 +2,11 @@
 
 #include <iostream>
 #include <vector>
+#include <math.h>
 
 #include "LearningSet.h"
-#include "muestra.h"
+#include "sample.h"
+#include "RecoverySet.h"
 
 using namespace std;
 
@@ -13,13 +15,15 @@ using namespace std;
 
 class KNN {
 public:
-	void mathDistance();
+	KNN(int);
+	float mathDistance(sample, sample);
 	void learning(LearningSet);
-	void recovery();
-	void validation();
-	void printMatriz();
+	string recovery(sample);
+	int validation(sample);
+	void printArray();
 private:
-	vector<muestra> MatrizDatos;
+	int k;
+	vector<sample> dataArray;
 	float PorcentajeEficiencia;
 };
 #endif

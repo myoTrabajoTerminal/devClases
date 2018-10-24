@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <vector>
-#include "muestra.h"
+#include "sample.h"
 
 using namespace std;
 
@@ -11,11 +11,11 @@ using namespace std;
 
 class LearningSet {
 public:
-	void setValues(vector<muestra>);
-	void append(muestra);
-	vector<muestra> getStandarDeviations();
+	void setValues(vector<sample>);
+	void append(sample);
+	vector<sample> getStandarDeviations();
 private:
-	vector<muestra> standardDeviations;
+	vector<sample> standardDeviations;
 };
 
 #endif

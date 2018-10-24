@@ -4,8 +4,9 @@
 #include <math.h>
 
 #include "sensors.h"
-#include "muestra.h"
+#include "sample.h"
 #include "LearningSet.h"
+#include "RecoverySet.h"
 #include "KNN.h"
 
 #define nSENSORS 8
@@ -15,17 +16,20 @@ using namespace std;
 vector<vector<string>> readCSV(string);
 vector<sensors> fillSensors(vector<vector<string>>);
 void printSensors(vector<sensors>);
-void printMuestras(vector<muestra>);
+void printSamples(vector<sample>);
 
 int main(int argc, char* argv[]) {
-	int time = 20;
+	int time = 25;
 	vector<vector<string>> res;
 	vector<sensors> sets;
-	vector<muestra> muestras;
-	muestra aux;
+	vector<sample> muestras;
+	sample aux;
 	LearningSet out;
 	float operationRes;
-	KNN clasificador;
+	KNN clasificador(1);
+	RecoverySet test;
+	int count = 0;
+	float efectividad;
 
 	//Leer los datos de la pulsera almacenados para pruebas
 	res = readCSV("excel/valores-final.csv");
@@ -44,16 +48,32 @@ int main(int argc, char* argv[]) {
 			aux.clear();
 		}
 	}
-	//printMuestras(muestras);
+	//printSamples(muestras);
 
-	//Ciclo para tomar unicamente el 80% de las muestras para la fase de aprendizaje
-	operationRes = (muestras.size() *8)/ 10;
+	//Ciclo para tomar unicamente el n% de las muestras para la fase de aprendizaje
+	operationRes = (muestras.size() *75)/ 100;
 	for (int row = 0; row < operationRes; row++) {
 		out.append(muestras[row]);
 	}
-	//printMuestras(out.getStandarDeviations());
+	//printSamples(out.getStandarDeviations());
 
 	clasificador.learning(out);
+	//clasificador.printArray();
+	//cout << "************" << endl;
+	for (int row = operationRes; row < muestras.size(); row++) {
+		test.append(muestras[row]);
+	}
+	//printSamples(test.getStandarDeviations());
+	
+	for (int samp = 0; samp < test.getStandarDeviations().size(); samp++) {
+		clasificador.recovery(test.getStandarDeviations()[samp]);
+	}
+
+	for (int samp = 0; samp < test.getStandarDeviations().size(); samp++) {
+		count = count + clasificador.validation(test.getStandarDeviations()[samp]);
+	}
+	efectividad = (count * 100) / static_cast<double>(test.getStandarDeviations().size());
+	cout << "Efectividad: " << efectividad << endl;
 
 	return 0;
 }
@@ -123,7 +143,7 @@ void printSensors(vector<sensors> raws) {
 }
 
 //DEBUG
-void printMuestras(vector<muestra> raws) {
+void printSamples(vector<sample> raws) {
 	for (int row = 0; row < raws.size(); row++) {
 		cout << raws[row].getClase() << '[';
 		for (int pos = 0; pos < raws[row].getStandarDev().size(); pos++) {

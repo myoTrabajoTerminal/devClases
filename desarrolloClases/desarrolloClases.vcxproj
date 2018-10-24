@@ -117,16 +117,16 @@
   <ItemGroup>
     <ClCompile Include="KNN.cpp" />
     <ClCompile Include="LearningSet.cpp" />
-    <ClCompile Include="muestra.cpp" />
-    <ClCompile Include="queue.cpp" />
+    <ClCompile Include="sample.cpp" />
+    <ClCompile Include="RecoverySet.cpp" />
     <ClCompile Include="sensors.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KNN.h" />
     <ClInclude Include="LearningSet.h" />
-    <ClInclude Include="muestra.h" />
-    <ClInclude Include="queue.h" />
+    <ClInclude Include="sample.h" />
+    <ClInclude Include="RecoverySet.h" />
     <ClInclude Include="sensors.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

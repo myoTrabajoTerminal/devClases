@@ -18,9 +18,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="muestra.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="sensors.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -30,14 +27,14 @@
     <ClCompile Include="KNN.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="queue.cpp">
+    <ClCompile Include="sample.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RecoverySet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="muestra.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="sensors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -47,7 +44,10 @@
     <ClInclude Include="KNN.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="queue.h">
+    <ClInclude Include="sample.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RecoverySet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
