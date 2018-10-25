@@ -19,7 +19,7 @@ void printSensors(vector<sensors>);
 void printSamples(vector<sample>);
 
 int main(int argc, char* argv[]) {
-	int time = 25;
+	int time = 30;
 	vector<vector<string>> res;
 	vector<sensors> sets;
 	vector<sample> muestras;
@@ -51,7 +51,7 @@ int main(int argc, char* argv[]) {
 	//printSamples(muestras);
 
 	//Ciclo para tomar unicamente el n% de las muestras para la fase de aprendizaje
-	operationRes = (muestras.size() *75)/ 100;
+	operationRes = (muestras.size() * 66)/ 100;
 	for (int row = 0; row < operationRes; row++) {
 		out.append(muestras[row]);
 	}
